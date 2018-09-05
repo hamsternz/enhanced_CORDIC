@@ -5,3 +5,45 @@ Currently it is just a C program for testing the ideas work.
 Please feel free to email me at hamster@snap.net.nz if you want to discuss.
 
 - Mike
+
+From the C code comments:
+
+///////////////////////////////////////////////////////////////////////////
+// enhanced_cordic.c : An enhanced CORDIC test program
+//
+// Author: Mike Field <hamster@snap.net.nz>
+//
+// This is a test for an CORDIC SIN()/COS() implementation that is
+// optimized for implementation in FPGA hardware. The differences are:
+//
+// - That the 'z value (outstanding angle error) is in doubled each
+//   itteration of the CORDIC algorithm.
+//
+// - A block RAM lookup table is used to implement some of the first
+//   set of CORDIC itterations. If sufficent block RAM is used, the
+//   values in angles[] can be replaced with a constant, as it quickly
+//   approaches a constant value
+//
+// The input is a phase (not degrees). The outputs are signed SIN
+// and COS values
+//
+// INDEX_BITS     How many bits are resolved using a lookup table
+// CORDIC_BITS    How many bits are resolved using CORDIC
+// INPUT_BITS     The total size of the input paramter, in bits
+//
+// CORDIC_REPS    How many CORDIC itterations are to be performed
+// OUTPUT_SCALE   The positive range of the CORDIC output
+//
+// OUTPUT_EXTRA_BITS Scaling factor for the results in progress
+// Z_EXTRA_BITS      Scaling vactor for the 'z' (angle yet to be resolved
+//
+// MAX_ERROR         The limit where the working will be printed out, for
+//                   debugging
+//
+// The benefits of this optimizations are lower latency, lower resource
+// usage, and maybe allow higher Fmax performance
+//
+// Say thanks: This is released under MIT license and can be openly used,
+// but feel free to reward me for my efforts with a PayPal donation at the
+// above email address if you find this useful.
+///////////////////////////////////////////////////////////////////////////
