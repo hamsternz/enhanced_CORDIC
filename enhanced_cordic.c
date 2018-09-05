@@ -6,11 +6,11 @@
 // This is a test for an CORDIC SIN()/COS() implementation that is
 // optimized for implementation in FPGA hardware. The differences are:
 //
-// - That the 'z value (outstanding angle error) is in doubled each
-//   itteration of the CORDIC algorithm.
+// - That the 'z value (outstanding angle error) is doubled during each
+//   iteration of the CORDIC algorithm.
 //
 // - A block RAM lookup table is used to implement some of the first
-//   set of CORDIC itterations. If sufficent block RAM is used, the 
+//   set of CORDIC iterations. If sufficent block RAM is used, the 
 //   values in angles[] can be replaced with a constant, as it quickly
 //   approaches a constant value
 //
@@ -21,7 +21,7 @@
 // CORDIC_BITS    How many bits are resolved using CORDIC
 // INPUT_BITS     The total size of the input paramter, in bits
 // 
-// CORDIC_REPS    How many CORDIC itterations are to be performed
+// CORDIC_REPS    How many CORDIC iterations are to be performed
 // OUTPUT_SCALE   The positive range of the CORDIC output 
 //
 // OUTPUT_EXTRA_BITS Scaling factor for the results in progress
